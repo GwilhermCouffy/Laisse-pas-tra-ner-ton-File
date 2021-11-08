@@ -30,7 +30,10 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             <img src=".$uploadFile."/>
          </div>";
 
-    move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadFile);
+    if(!isset($errors)){
+        move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadFile);
+    }
+    
     /****** Si je n'ai pas d"erreur alors j'upload *************/
    /**
         TON SCRIPT D'UPLOAD
